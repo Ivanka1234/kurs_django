@@ -31,10 +31,11 @@
        {% for item in news %}
        <div class="card mb-3">
           <div class="card-header">
+            {{forloop.counter}}
             Категорія: {{item.category}}
           </div>
           <div class="card-body">
-            <h5 class="card-title">{{ item.title }}</h5>
+            <h5 class="card-title {%cycle 'text-danger' 'text-success'%}">{{ item.title }}</h5>
             <p class="card-text">{{ item.content}}</p>
             <a href="#" class="btn btn-primary">Go somewhere</a>
           </div>
@@ -42,6 +43,8 @@
              {{ item.created_at|date:'Y-m-d H:i'}}
          </div>
        </div>
+       {% empty %}
+            Oops...
        {% endfor %}
      </div>
    </div>
