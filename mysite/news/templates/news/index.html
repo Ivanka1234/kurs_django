@@ -35,13 +35,25 @@
             Категорія: {{item.category}}
           </div>
           <div class="card-body">
-            <h5 class="card-title {%cycle 'text-danger' 'text-success'%}">{{ item.title }}</h5>
-            <p class="card-text">{{ item.content}}</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+              <div class="media">
+                  {%if item.photo%}
+                      <img src="{{item.photo.url}} " alt=" " width="500" class="mr-3">
+                  {%else%}
+                      <img src="https://picsum.photos/seed/picsum/200/300" alt=" " width="500" class="mr-3">
+                  {%endif%}
+                  <div class="media-body">
+                      <h5 class="card-title {%cycle 'text-danger' 'text-success'%}">{{ item.title }}</h5>
+                      <p class="card-text">{{ item.content}}</p>
+                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                  </div>
+              </div>
+              <h5 class="card-title {%cycle 'text-danger' 'text-success'%}">{{ item.title }}</h5>
+              <p class="card-text">{{ item.content}}</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
           </div>
-         <div class="card-footer text-muted">
+          <div class="card-footer text-muted">
              {{ item.created_at|date:'Y-m-d H:i'}}
-         </div>
+          </div>
        </div>
        {% empty %}
             Oops...
