@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{%block title%}>
+Додання новин::{{block.super}}
+<{%endblock%}
+
+{%block sidebar%}>
+{%include 'inc/_sitebar.html'%}
+<{%endblock%}
+
+{%block content%}>
+      <h1> Додання новин </h1>
+
+      <form action="{% url 'add_news'%}" method="post">
+
+            {% csrf_token %}
+            {{ form.as_p}}
+            <button type="submit" class="btn btn-primary btn-block">Добавити новину</button>
+
+      </form>
+
+<{%endblock%}
